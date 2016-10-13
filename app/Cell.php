@@ -19,7 +19,7 @@ class Cell  {
      * @param $content The cell content
      * @return void
      */
-    public function __construct($content) {
+    public function __construct( $content ) {
         $this->_content = $content;
     }
     

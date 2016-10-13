@@ -9,11 +9,20 @@ namespace App;
  */
 class Queen {
     
+    /* Current X ( column ) position of a queen.
+     */
     public $positionX;
+    
+    /* Current Y ( row ) position of a queen
+     */
     public $positionY;
     
+    /* Holds all the chessboard cells
+     */
     public $_arrTable;
     
+    /* Keeps count of number of queens on chessboard.
+     */
     public $otherQueens;
     
     public function __construct( $x, $y ) {
@@ -25,7 +34,7 @@ class Queen {
         
         /* Create all table rows with cells.
          */
-        for( $r=1;$r<=7;$r++) {
+        for( $r=1; $r<=7; $r++) {
             
             for( $c=1; $c<=7; $c++ ) {
                 if( $r == $this->positionX && $c == $this->positionY ) {
@@ -63,9 +72,9 @@ class Queen {
                             if( $this->calculateSouth( $row, $col ) == FALSE ) {
                                 if( $this->calculateWest( $row, $col ) == FALSE ) {
                                     if( $this->calculateNorthEast( $row, $col ) == FALSE ) {
-                                        if( $this->calculateSouthEast($row, $col) == FALSE ) {
-                                            if( $this->calculateSouthWest($row, $col) == FALSE ) {
-                                                if( $this->calculateNorthWest($row, $col) == FALSE ) {
+                                        if( $this->calculateSouthEast( $row, $col ) == FALSE ) {
+                                            if( $this->calculateSouthWest( $row, $col ) == FALSE ) {
+                                                if( $this->calculateNorthWest( $row, $col ) == FALSE ) {
                                                     // Yep! set new queen :)
                                                     $this->_arrTable[$row][$col] = TRUE;
                                                     $blnQueen = TRUE;
@@ -104,15 +113,11 @@ class Queen {
                     else {
 //                        echo "Got one up north of me! $row | $col<br>";
                     }
-                    
-                    
                 }
                 else {
 //                    echo "Already got a queen at: $row | $col<br>";
                 }
             }
-            
-            
         }
 
     }
@@ -151,7 +156,7 @@ class Queen {
         
         if( $col <= 7 ) {
             
-            for( $i= $col; $i<=7; $i++) {
+            for( $i= $col; $i<=7; $i++ ) {
                 
                 if( $this->_arrTable[$row][$i] == TRUE ) {
                     return TRUE;
@@ -177,7 +182,7 @@ class Queen {
         
         if( $row <= 7 ) {
             
-            for( $i=$row; $i<=7; $i++) {
+            for( $i=$row; $i<=7; $i++ ) {
                 
                 if( $this->_arrTable[$i][$col] == TRUE ) {
                     return TRUE;
@@ -234,7 +239,7 @@ class Queen {
             else {
                 $row = $row - 1;
                 $col = $col + 1;
-                return $this->calculateNorthEast($row, $col);
+                return $this->calculateNorthEast( $row, $col );
             }
                     
         }
@@ -259,7 +264,7 @@ class Queen {
             else {
                 $row = $row + 1;
                 $col = $col + 1;
-                return $this->calculateSouthEast($row, $col);
+                return $this->calculateSouthEast( $row, $col );
             }
 
         }
@@ -285,7 +290,7 @@ class Queen {
             else {
                 $row = $row + 1;
                 $col = $col - 1;
-                return $this->calculateSouthWest($row, $col);
+                return $this->calculateSouthWest( $row, $col );
             }
         }
         
@@ -311,7 +316,7 @@ class Queen {
             else {
                 $row = $row - 1;
                 $col = $col - 1;
-                return $this->calculateNorthWest($row, $col);
+                return $this->calculateNorthWest( $row, $col );
                 
             }
         }

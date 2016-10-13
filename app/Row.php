@@ -27,7 +27,7 @@ class Row  {
      * @param $cell add an individual cell to this row.
      * @return 
      */
-    public function append($cell) {
+    public function append( $cell ) {
         $this->_cells[] = $cell;
     }
     
@@ -39,7 +39,7 @@ class Row  {
 //        $output = '<tr>'.PHP_EOL;
         $output = '<tr>';
         
-        foreach($this->_cells as $cell) {
+        foreach( $this->_cells as $cell ) {
             $output .= $cell;
         }
         
